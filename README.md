@@ -1,4 +1,4 @@
-Velorix
+VELORIX
 
 Velorix is a comprehensive browser-based cybersecurity workspace designed for anti-phishing analysis. It equips users with essential tools to inspect suspicious URLs, analyze raw email headers, and scan attachments safely.
 
@@ -30,4 +30,9 @@ If you want to run this project locally on your machine, follow these steps:
 
 1. Clone this repository:
    ```bash
-   git clone [https://github.com/Tirth-Mojidra/velorix.git](https://github.com/Tirth-Mojidra/velorix.git)
+   git clone https://github.com/Tirth-Mojidra/velorix.git
+
+
+## Project Note
+
+This is an educational cybersecurity project. The checks are heuristic and client-side. It should be used for awareness and first-level inspection, not as a replacement for professional threat intelligence, breach databases, or enterprise mail security tools.
