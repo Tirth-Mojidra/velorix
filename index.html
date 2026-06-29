@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Velorix is a cybersecurity toolkit for phishing URL detection, email header analysis, and attachment scanning." />
+  <title>Velorix | Cybersecurity Toolkit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <nav class="nav-shell" aria-label="Primary navigation">
+      <button class="brand route-link" type="button" data-route="home" aria-label="Velorix home">
+        <span class="brand-mark">V</span>
+        <span>Velorix</span>
+      </button>
+      <div class="nav-links">
+        <button class="nav-link active" type="button" data-route="home">Home</button>
+        <button class="nav-link" type="button" data-route="url-detector">URL Detector</button>
+        <button class="nav-link" type="button" data-route="email-header">Email Header</button>
+        <button class="nav-link" type="button" data-route="attachment-analyzer">Attachment Analyzer</button>
+        <button class="nav-link" type="button" data-route="about">About</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="view active" data-view="home">
+      <div class="home-hero">
+        <div class="hero-lockup">
+          <span class="hero-mark">V</span>
+          <h1>Velorix</h1>
+        </div>
+        <p>Anti-phishing analysis. Inspect suspicious URLs, email headers, and attachments in a focused browser-based workspace.</p>
+      </div>
+
+      <div class="home-cards" aria-label="Velorix tools">
+        <button class="home-card route-link" type="button" data-route="url-detector">
+          <span class="card-kicker">01</span>
+          <strong>Phishing URL Detector</strong>
+          <span>Analyze suspicious links for risky protocols, misleading domains, brand impersonation, and phishing keywords.</span>
+          <em>Open -&gt;</em>
+        </button>
+        <button class="home-card route-link" type="button" data-route="email-header">
+          <span class="card-kicker">02</span>
+          <strong>Email Header</strong>
+          <span>Verify SPF, DKIM, DMARC, sender alignment, reply-to mismatch, and routing hop signals from raw headers.</span>
+          <em>Open -&gt;</em>
+        </button>
+        <button class="home-card route-link" type="button" data-route="attachment-analyzer">
+          <span class="card-kicker">03</span>
+          <strong>Attachment Scanner</strong>
+          <span>Inspect file metadata, risky extensions, double-extension tricks, macros, scripts, archives, and embedded URL hints.</span>
+          <em>Open -&gt;</em>
+        </button>
+      </div>
+    </section>
+
+    <section id="url-detector" class="view workspace-view" data-view="url-detector">
+      <aside class="workspace-sidebar">
+        <p class="panel-label">URL</p>
+        <label for="url-input">Suspicious URL</label>
+        <input id="url-input" type="url" placeholder="https://secure-login.example.com/account/verify" autocomplete="off" />
+        <button class="primary-btn" type="button" id="scan-url">Analyze URL</button>
+      </aside>
+      <section class="workspace-main" aria-live="polite">
+        <div class="workspace-title"><span class="layout-icon"></span><h2>Phishing URL Detector</h2></div>
+        <div class="result-grid">
+          <div class="score-card">
+            <span>Risk Score</span>
+            <strong id="url-score">--</strong>
+            <em id="url-verdict" class="verdict neutral">Awaiting input</em>
+          </div>
+          <ul id="url-findings" class="findings-list"><li>Enter a URL in the sidebar, then run analysis.</li></ul>
+        </div>
+      </section>
+    </section>
+
+    <section id="email-header" class="view workspace-view" data-view="email-header">
+      <aside class="workspace-sidebar">
+        <p class="panel-label">Raw Email Headers</p>
+        <label for="header-input">Header text</label>
+        <textarea id="header-input" rows="14" placeholder="Paste full email headers here..."></textarea>
+        <label class="toggle-row"><input id="analyst-mode" type="checkbox" /><span>Analyst Mode</span></label>
+        <button class="primary-btn" type="button" id="scan-header">Analyze Header</button>
+      </aside>
+      <section class="workspace-main" aria-live="polite">
+        <div class="workspace-title"><span class="layout-icon"></span><h2>Email Header</h2></div>
+        <div class="result-grid">
+          <div class="score-card">
+            <span>Trust Score</span>
+            <strong id="header-score">--</strong>
+            <em id="header-verdict" class="verdict neutral">Awaiting input</em>
+          </div>
+          <ul id="header-findings" class="findings-list"><li>Paste raw email headers in the sidebar, then run analysis.</li></ul>
+        </div>
+      </section>
+    </section>
+
+    <section id="attachment-analyzer" class="view workspace-view" data-view="attachment-analyzer">
+      <aside class="workspace-sidebar">
+        <p class="panel-label">File</p>
+        <label class="drop-zone" for="attachment-input">
+          <span class="upload-icon">up</span>
+          <strong>Drop a file here or click to browse</strong>
+          <small>Up to 50 MB</small>
+        </label>
+        <input id="attachment-input" class="file-input" type="file" />
+        <div id="file-summary" class="file-summary">No file selected.</div>
+        <button class="primary-btn" type="button" id="scan-attachment">Analyze Attachment</button>
+      </aside>
+      <section class="workspace-main" aria-live="polite">
+        <div class="workspace-title"><span class="layout-icon"></span><h2>Attachment Analyzer</h2></div>
+        <div class="result-grid">
+          <div class="score-card">
+            <span>File Risk</span>
+            <strong id="attachment-score">--</strong>
+            <em id="attachment-verdict" class="verdict neutral">Awaiting input</em>
+          </div>
+          <ul id="attachment-findings" class="findings-list"><li>Drop or choose a file in the sidebar, then run analysis.</li></ul>
+        </div>
+      </section>
+    </section>
+
+    <section id="about" class="view about-view" data-view="about">
+      <div class="section-heading">
+        <p class="eyebrow">About Velorix</p>
+        <h2>Built for awareness, prevention, and safer inspection habits.</h2>
+      </div>
+      <div class="about-grid">
+        <article><h3>Phishing URL Detection</h3><p>Flags insecure protocols, raw IP links, suspicious TLDs, brand impersonation, excessive subdomains, and urgent credential keywords.</p></article>
+        <article><h3>Email Authentication Review</h3><p>Summarizes SPF, DKIM, DMARC, sender alignment, return-path mismatch, and delivery route visibility.</p></article>
+        <article><h3>Attachment Risk Review</h3><p>Checks file name, size, extension, double-extension patterns, script-like formats, macro-enabled Office files, and archive risk signals.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
